@@ -9,7 +9,7 @@
     @layer utilities {
 
     .container {
-      @apply max-w-[85%] mx-auto;
+      @apply max-w-[90%] mx-auto;
     }
 
     button {
@@ -46,6 +46,10 @@
       box-shadow: 0px 94px 80px rgba(0, 0, 0, 0.02), 0px 39.271px 33.4221px rgba(0, 0, 0, 0.0143771), 0px 20.9961px 17.869px rgba(0, 0, 0, 0.0119221), 0px 11.7703px 10.0172px rgba(0, 0, 0, 0.01), 0px 6.2511px 5.32008px rgba(0, 0, 0, 0.00807786), 0px 2.60122px 2.21381px rgba(0, 0, 0, 0.00562291);
       border-radius: 10px;
     }
+
+    .active {
+      @apply block;
+    }
   }
 </style>
 
@@ -53,17 +57,19 @@
 
 <body>
   <header class="">
-    <nav class="container flex p-3 items-center">
+    <nav class="container relative flex p-5 items-center justify-between">
       <a href="">
         <img src="./assets/logo.svg" alt="">
       </a>
-      <div class="ml-16 flex-1 space-x-4">
-        <a href="">Home</a>
+      <div class="space-x-4 hidden md:show">
         <a href="">About</a>
+        <a href="" class="relative">
+          Menu
+        </a>
         <a href="">Service</a>
         <a href="">Our Work</a>
       </div>
-      <div class="flex items-center space-x-5">
+      <div class="flex items-center space-x-5 hidden md:flex">
         <span>
           <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="8.36556" cy="8.36458" r="7.03353" stroke="#070D13" stroke-width="2" />
@@ -73,8 +79,38 @@
         </span>
         <a href="" class="text-white bg-blue-600 px-5 py-3 rounded-full">Get Started</a>
       </div>
+
+      <a href="#" class="hamburger md:hidden">
+        <img src="./assets/hamburger.svg" alt="">
+      </a>
+
+      <div
+        class="popup absolute inset-x-0 top-10 border border-gray-300 bg-white shadow-lg right-12 rounded-lg p-4 hidden md:hidden">
+        <div class="flex items-center space-x-1 w-full mb-4 border border-gray-400 px-3 rounded-full">
+          <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8.36556" cy="8.36458" r="7.03353" stroke="#070D13" stroke-width="2" />
+            <rect x="13.8848" y="13" width="6.56463" height="1.25023" rx="0.625113" transform="rotate(45 13.8848 13)"
+              fill="#070D13" />
+          </svg>
+          <input type="text" class="w-full border-none" placeholder="Search ..." />
+        </div>
+
+        <div class="space-y-4 flex flex-col">
+          <a href="">Home</a>
+          <a href="">About</a>
+          <a href="">Service</a>
+          <a href="">Our Work</a>
+        </div>
+
+        <div class="flex flex-col mt-4">
+          <a href="" class="text-white bg-blue-600 px-5 py-3 rounded-full text-center">Get Started</a>
+        </div>
+      </div>
+
     </nav>
   </header>
+
+
   <section style="background: linear-gradient(180deg, #FFFFFF 0%, #EAF4FF 46.08%, #FFFFFF 100%);">
     <div class="container flex items-center justify-center">
       <div class="space-y-10 mt-12 text-center">
@@ -361,10 +397,10 @@
     <article>
       <p class="font-bold py-2">Services</p>
       <ul class="flex flex-col gap-2">
-        <li>Custom WordPress Theme Development</li>
+        <li> Custom WordPress Theme Development</li>
         <li> Custom Plugin WordPress</li>
         <li> Custom Shopify Theme Development</li>
-        <li>Custom App for Shopify</li>
+        <li> Custom App for Shopify</li>
         <li> Web Application</li>
       </ul>
     </article>
@@ -404,6 +440,8 @@
   <footer class="bg-[#125960] py-5">
     <p class="text-center  text-white ">© 2022 Mangcoding. All rights reserved.</p>
   </footer>
+
+  <script src="./app.js"></script>
 </body>
 
 </html>
